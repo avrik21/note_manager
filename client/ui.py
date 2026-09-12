@@ -1,6 +1,6 @@
-from logic.manager.manager import *
+from ..logic.manager.manager import *
 
 note_manager = NoteManager()
 
 class NoteUi:
-    pass
+    num = 100
