@@ -1,27 +1,31 @@
 from ..note.note import Note
 
 class NoteManager:
-    def __int__(self):
+    def __init__(self):
         self.notes = []
+        self.number = 0
 
     def create_note(self, name, category, discription):
         note = Note(name, category, discription)
+        self.number += 1
+        note.note_number = self.number
         self.notes.append(note)
 
     def show_notes(self):
         if len(self.notes) == 0:
+            print("Список пуст! Пора что-то добавить!")
             return False
         
         for item in self.notes:
             status = "Не выполнено"
-            if not item.is_completed:
+            if item.is_completed:
                 status = "Выполнено"
+            print(item.is_completed)
             print(f"""
 Заметка №{item.note_number}
 ______________________
 Название: {item.name}
 Категория: {item.category}
-Описание: {item.discription}
 Состояние: {status}
 _____________________
 """)
@@ -30,19 +34,20 @@ _____________________
     def view_note(self, number):
         for item in self.notes:
             status = "Не выполнено"
-            if not item.is_completed:
+            if item.is_completed:
                 status = "Выполнено"
             if item.note_number == number:
                 print(f"""
-                Заметка №{item.note_number}
-                ______________________
-                Название: {item.name}
-                Категория: {item.category}
-                Описание: {item.discription}
-                Состояние: {status}
-                _____________________
+Заметка №{item.note_number}
+______________________
+Название: {item.name}
+Категория: {item.category}
+Описание: {item.discription}
+Состояние: {status}
+_____________________
                 """)
                 return True
+        print("Список пуст! Пора что-то добавить!")
         return False
 
     def delete_note(self, number):
@@ -74,6 +79,8 @@ _____________________
     def completed_note(self, number):
         for item in self.notes:
             if item.note_number == number:
+                if item.is_completed == True:
+                    return False
                 item.is_completed = True
                 return True
         return False
