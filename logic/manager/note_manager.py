@@ -1,0 +1,78 @@
+from ..note.note import *
+
+class NoteManager:
+    notes = []
+
+    def create_note(self, name, category, discription):
+        note = Note(name, category, discription)
+        self.notes.append(note)
+
+    def show_notes(self):
+        if len(self.notes) == 0:
+            return False
+        
+        for item in self.notes:
+            status = "Не выполнено"
+            if not item.is_completed:
+                status = "Выполнено"
+            print(f"""
+Заметка №{item.note_number}
+______________________
+Название: {item.name}
+Категория: {item.category}
+Описание: {item.discription}
+Состояние: {status}
+_____________________
+""")
+        return True
+
+    def view_note(self, number):
+        for item in self.notes:
+            status = "Не выполнено"
+            if not item.is_completed:
+                status = "Выполнено"
+            if item.note_number == number:
+                print(f"""
+                Заметка №{item.note_number}
+                ______________________
+                Название: {item.name}
+                Категория: {item.category}
+                Описание: {item.discription}
+                Состояние: {status}
+                _____________________
+                """)
+                return True
+            return False
+
+    def delete_note(self, number):
+        for item in self.notes:
+            if item.note_number == number:
+                self.notes.remove(item)
+                return True
+            return False
+
+    def sort_note(self):
+        lst = []
+        new_notes = []
+
+        for item in self.notes:
+            lst.append(item.name)
+        lst.sort()
+
+        for i in lst:
+            for q in self.notes:
+                if i == q.name:
+                    new_notes.append(q)
+
+        if len(new_notes):
+            return False
+
+        self.notes = new_notes
+        return True
+
+    def completed_note(self, number):
+        for item in self.notes:
+            if item.note_number == number:
+                item.is_completed = True
+                return True
+            return False
