@@ -37,7 +37,7 @@ _____________________
                 status = "Выполнено"
             if item.note_number == number:
                 print(f"""
-`Заметка №{item.note_number}
+Заметка №{item.note_number}
 ______________________
 Название: {item.name}
 Категория: {item.category}

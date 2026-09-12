@@ -28,6 +28,7 @@ class NoteUi:
         result = note_manager.delete_note(number)
         if not result:
             print("Такой заметки нет")
+            input("Нажмите Enter ")
             return False
 
         print("Заметка удалена!")
@@ -37,6 +38,7 @@ class NoteUi:
         result = note_manager.sort_note()
         if not result:
             print("Список пуст")
+            input("Нажмите Enter ")
             return False
 
         print("Список отсортирован!")
@@ -47,6 +49,7 @@ class NoteUi:
         result = note_manager.completed_note(number)
         if not result:
             print("Такой заметки нет или она уже выполнена")
+            input("Нажмите Enter ")
             return False
         
         print("Заметка выпалнена! Поздравляю!")

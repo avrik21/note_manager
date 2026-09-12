@@ -16,16 +16,16 @@ def number_check(number):
 
 def input_choice(number_points):
     while True:
-        choice = int(input("Выберите пункт: "))
-        if 0 > choice > number_points:
-            print("Введите корректное число")
-            continue
+        choice = input("Выберите пункт: ")
         if number_check(choice):
-            return choice
+            if 0 > int(choice) <= number_points:
+                print("Введите корректное число")
+                continue
+            return int(choice)
 
 def input_number():
     while True:
-        input_number = int(input("Введите номер заметки: "))
+        input_number = input("Введите номер заметки: ")
         if number_check(input_number):
-            return input_number
+            return int(input_number)
 
