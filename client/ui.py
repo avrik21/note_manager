@@ -1,4 +1,4 @@
-from logic.manager.note_manager import *
+from logic.manager.manager import *
 
 note_manager = NoteManager()
 

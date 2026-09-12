@@ -1,7 +1,8 @@
-from ..note.note import *
+from ..note.note import Note
 
 class NoteManager:
-    notes = []
+    def __int__(self):
+        self.notes = []
 
     def create_note(self, name, category, discription):
         note = Note(name, category, discription)
@@ -42,14 +43,14 @@ _____________________
                 _____________________
                 """)
                 return True
-            return False
+        return False
 
     def delete_note(self, number):
         for item in self.notes:
             if item.note_number == number:
                 self.notes.remove(item)
                 return True
-            return False
+        return False
 
     def sort_note(self):
         lst = []
@@ -64,7 +65,7 @@ _____________________
                 if i == q.name:
                     new_notes.append(q)
 
-        if len(new_notes):
+        if not len(new_notes):
             return False
 
         self.notes = new_notes
@@ -75,4 +76,4 @@ _____________________
             if item.note_number == number:
                 item.is_completed = True
                 return True
-            return False
+        return False
