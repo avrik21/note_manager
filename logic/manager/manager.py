@@ -46,7 +46,7 @@ ______________________
 _____________________
                 """)
                 return True
-        print("Список пуст! Пора что-то добавить!")
+        print("Такой заметки нет")
         return False
 
     def delete_note(self, number):
