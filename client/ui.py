@@ -34,11 +34,11 @@ class NoteUi:
         input("Нажмите Enter ")
 
     def request_to_sort_note():
-        if not note_manager.sort_note():
+        result = note_manager.sort_note()
+        if not result:
             print("Список пуст")
             return False
 
-        note_manager.sort_note
         print("Список отсортирован!")
         input("Нажмите Enter ")
 
