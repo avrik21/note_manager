@@ -18,7 +18,7 @@ def input_choice(number_points):
     while True:
         choice = input("Выберите пункт: ")
         if number_check(choice):
-            if 0 > int(choice) or number_points <= int(choice):
+            if 0 >= int(choice) or number_points < int(choice):
                 print("Введите корректное число")
                 continue
             return int(choice)
