@@ -20,7 +20,6 @@ class NoteManager:
             status = "Не выполнено"
             if item.is_completed:
                 status = "Выполнено"
-            print(item.is_completed)
             print(f"""
 Заметка №{item.note_number}
 ______________________
@@ -38,7 +37,7 @@ _____________________
                 status = "Выполнено"
             if item.note_number == number:
                 print(f"""
-Заметка №{item.note_number}
+`Заметка №{item.note_number}
 ______________________
 Название: {item.name}
 Категория: {item.category}

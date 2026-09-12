@@ -25,12 +25,11 @@ class NoteUi:
 
     def request_to_delete_note():
         number = input_number()
-        
-        if not note_manager.delete_note(number):
+        result = note_manager.delete_note(number)
+        if not result:
             print("Такой заметки нет")
             return False
 
-        note_manager.delete_note(number)
         print("Заметка удалена!")
         input("Нажмите Enter ")
 
@@ -45,11 +44,10 @@ class NoteUi:
 
     def request_to_completed_note():
         number = input_number()
-        
-        if not note_manager.completed_note(number):
+        result = note_manager.completed_note(number)
+        if not result:
             print("Такой заметки нет или она уже выполнена")
             return False
         
-        note_manager.completed_note(number)
         print("Заметка выпалнена! Поздравляю!")
         input("Нажмите Enter ")
