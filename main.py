@@ -17,7 +17,7 @@ _____________________
 0. Выход
 _____________________
 """)
-    choice = ut.input_choice(7)
+    choice = ut.input_choice(6)
     if choice == 1:
         ut.function_call(note_ui.request_to_create_note)
     elif choice == 2:
